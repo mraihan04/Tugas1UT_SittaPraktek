@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sitta - Dashboard</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<aside>
+    <div class="sidebar-logo">
+        <div class="logo">SITTA</div>
+    </div>
+    <nav>
+        <a class="active">Dashboard</a>
+        <a href="stock.html">Informasi Bahan Ajar</a>
+        <a href="tracking.html">Tracking Pengiriman</a>
+        <div class="nav-dropdown">
+            <div class="nav-dropdown-toggle" onclick="toggleDropdown(this)">
+                Laporan
+                <span class="arrow">▼</span>
+            </div>
+            <div class="dropdown-content">
+                <a>Monitoring Progress DO Bahan Ajar</a>
+                <a>Rekap Bahan Ajar</a>
+            </div>
+        </div>
+        <a>Histori Transaksi Bahan Ajar</a>
+        <a class="keluar" onclick="doKeluar()">Keluar</a>
+    </nav>
+</aside>
+
+<div class="main">
+    <header>
+        <div class="header-title">Dashboard</div>
+    </header>
+
+    <div class="page-content">
+        <div class="content-card">
+            <div class="greeting">
+                <h2>Dashboard website SITTA</h2>
+                <p>Halo, <span id="welcome"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="data.js"></script>
+<script src="JS/script.js"></script>
+<script>
+    dashboard();
+</script>
+</body>
+</html>

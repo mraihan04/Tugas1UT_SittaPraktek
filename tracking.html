@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITTA - Tracking</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<aside>
+    <div class="sidebar-logo">
+        <div class="logo">SITTA</div>
+    </div>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="stock.html">Informasi Bahan Ajar</a>
+        <a class="active">Tracking Pengiriman</a>
+        <div class="nav-dropdown">
+            <div class="nav-dropdown-toggle" onclick="toggleDropdown(this)">
+                Laporan
+                <span class="arrow">▼</span>
+            </div>
+            <div class="dropdown-content">
+                <a>Monitoring Progress DO Bahan Ajar</a>
+                <a>Rekap Bahan Ajar</a>
+            </div>
+        </div>
+        <a>Histori Transaksi Bahan Ajar</a>
+        <a class="keluar" onclick="doKeluar()">Keluar</a>
+    </nav>
+</aside>
+
+<div class="main">
+    <header>
+        <div class="header-title">Tracking Pengiriman</div>
+    </header>
+
+    <div class="page-content">
+        <div class="search">
+            <label>No. DO/Billing</label>
+            <input type="text" id="input-do" placeholder="cari disini">
+            <button class="btn-action" onclick="doLacak()">lacak</button>
+        </div>
+        <div id="tracking-result"></div>
+    </div> 
+</div>
+
+<script src="JS/data.js"></script>
+<script src="JS/script.js"></script>
+<script>
+    document.getElementById('input-do').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') doLacak();
+    });
+</script>
+</body>
+</html>

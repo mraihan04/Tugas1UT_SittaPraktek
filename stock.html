@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITTA - Stock</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<aside>
+    <div class="sidebar-logo">
+        <div class="logo">SITTA</div>
+    </div>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a class="active">Informasi Bahan Ajar</a>
+        <a href="tracking.html">Tracking Pengiriman</a>
+        <div class="nav-dropdown">
+            <div class="nav-dropdown-toggle" onclick="toggleDropdown(this)">
+                Laporan
+                <span class="arrow">▼</span>
+            </div>
+            <div class="dropdown-content">
+                <a>Monitoring Progress DO Bahan Ajar</a>
+                <a>Rekap Bahan Ajar</a>
+            </div>
+        </div>
+        <a>Histori Transaksi Bahan Ajar</a>
+        <a class="keluar" onclick="doKeluar()">Keluar</a>
+    </nav>
+</aside>
+
+<div class="main">
+    <header>
+        <div class="header-title">Informasi Bahan Ajar</div>
+    </header>
+
+    <div class="page-content">
+        <div id="tambah-stock">
+            <label>Tambah Stok</label>
+            <input type="text" id="inp-kode" placeholder="kode bahan ajar">
+            <input type="number" id="inp-jumlah" value="1" min="1">
+            <button class="btn-action" onclick="tambahStok()">Tambah</button>
+        </div>
+        <div class="page-section-header">
+            <h3>Daftar Bahan Ajar</h3>
+            <p>Data stok bahan ajar terkini</p>
+        </div>
+        
+        <div id="list-buku"></div>
+    </div>  
+</div>
+
+<div class="modal-overlay" id="modal-error-buku">
+    <div class="modal-box">
+        <div class="modal-icon">⚠️</div>
+        <h3>Kode Salah!</h3>
+        <p>Silahkan masukkan kembali kode buku dengan benar.</p>
+        <button class="btn modal-btn" onclick="tutupModal('modal-error-buku')">Coba Lagi</button>
+    </div>
+</div>
+
+<script src="JS/data.js"></script>
+<script src="JS/script.js"></script>
+<script>
+    renderBuku();
+    
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) tutupModal(overlay.id);
+        });
+    });
+    
+</script>
+</body>
+</html>

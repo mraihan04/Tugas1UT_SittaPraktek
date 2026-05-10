@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SITTA - Login Page</title>
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+<body>
+<div id="login-page">
+    <div id="login-logo">
+        <div class="logo">SITTA</div>
+        <div class="logo-ket">Pemesanan Bahan Ajar<br>Universitas Terbuka</div>
+    </div>
+    
+    <div id="login-card">
+        <h1>Selamat Datang</h1>
+        <p>Silahkan lakukan login dengan email Anda</p>  
+        <div class="form-group">
+            <input type="email" id="inp-email" placeholder="Masukkan email">
+        </div> 
+        <div class="form-group">
+            <input type="password" id="inp-password" placeholder="Masukkan sandi">
+        </div>
+        <a id="lupa-pass" onclick="bukaModal('modal-lupa')">Lupa password?</a>
+        <button class="btn" onclick="doLogin()">Masuk</button>
+        <div id="daftar">
+            <p>Belum punya akun? <a onclick="bukaModal('modal-daftar')">Daftar</a></p>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-error">
+    <div class="modal-box">
+        <div class="modal-icon">⚠️</div>
+        <h3>Login Gagal</h3>
+        <p>Email atau password yang Anda masukkan salah. Silahkan coba kembali.</p>
+        <button class="btn modal-btn" onclick="tutupModal('modal-error')">Coba Lagi</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-lupa">
+    <div class="modal-box">
+        <button class="modal-close" onclick="tutupModal('modal-lupa')">✕</button>
+        <h3>Lupa Password</h3>
+        <p>Masukkan email Anda, kami akan mengirimkan link reset password.</p>
+        <div class="form-group">
+            <input type="email" id="inp-reset-email" placeholder="Masukkan email terdaftar">
+        </div>
+        <button class="btn modal-btn" onclick="kirimReset()">Kirim Link Reset</button>
+    </div>
+</div>
+
+<div class="modal-overlay" id="modal-daftar">
+    <div class="modal-box">
+        <button class="modal-close" onclick="tutupModal('modal-daftar')">✕</button>
+        <h3>Daftar Akun</h3>
+        <p>Isi formulir berikut untuk mendaftar akun baru.</p>
+        <div class="form-group">
+            <input type="text" placeholder="Nama lengkap">
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password baru">
+        </div>
+        <button class="btn modal-btn" onclick="doDaftar()">Daftar</button>
+    </div>
+</div>
+
+<script src="Js/data.js"></script>
+<script src="JS/script.js"></script>
+<script>
+    document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+        overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) tutupModal(overlay.id);
+        });
+    });
+</script>
+</body>
+</html>
